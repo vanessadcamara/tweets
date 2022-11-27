@@ -28,8 +28,7 @@ app.get("/:id", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-  const tweets = controller.getAllTweets();
-  res.send(`tweets: ${tweets}`);
+  res.send(controller.getAllTweets());
 });
 
 app.listen(port);
