@@ -1,12 +1,12 @@
 const controller = require("./tweet.controller.js");
-
+var cors = require("cors") 
 var express = require("express"),
   app = express(),
   port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
-
+app.use(cors())
 app.post("/", function (req, res) {
   const tweet = controller.addTweet(req.body);
   res.status(201).send(tweet);
